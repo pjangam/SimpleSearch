@@ -11,7 +11,7 @@ all:test
 test: clean
 	dotnet test -c Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
 ifeq ($(ENV),'DEV')
-	dotnet ~/.nuget/packages/reportgenerator/4.7.1/tools/netcoreapp3.0/ReportGenerator.dll  "-reports:./test/SnakesAndLadders.Tests/TestResults/**/coverage.opencover.xml" "-targetdir:coveragereport" -reporttypes:Html
+	dotnet ~/.nuget/packages/reportgenerator/5.1.9/tools/netcoreapp3.1/ReportGenerator.dll  "-reports:./SimpleSearch.Tests/TestResults/**/coverage.opencover.xml" "-targetdir:coveragereport" -reporttypes:Html
 endif
 
 .PHONY: start
@@ -24,7 +24,8 @@ start:
 clean:
 	dotnet clean
 	dotnet clean -c Release
-	rm -rf test/SnakesAndLadders.Tests/TestResults
+	rm -rf test/SimpleSearch.Tests/TestResults
+	rm -rf coveragereport
 
 ## build
 .PHONY: build
