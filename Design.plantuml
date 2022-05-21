@@ -1,0 +1,41 @@
+@startuml ClassDigrams
+class Document {
+    +String Name  //Searchable,Sortable
+    +String Image String // this is url
+    +String Description   //Searchable
+    ..
+    +Date LastEditedDate  //Sortable
+}
+
+' I may need entities like Searchable,Sortable We can use these in built
+interface ISortable {
+    T[] Sort( String sortBy)
+}
+interface IPageble {
+    T[] Get(int page,int size)
+}
+interface ICollection 
+
+ICollection <|-- IPageble
+ICollection <|-- ISortable
+
+
+class Collection {
+    Document[] Documents
+    ' +ICollection<Document> GetAll()
+    +ICollection<Document> Find(String name, String description)
+}
+
+
+class SearchResult {
+    int Count
+    String previous
+    String Next
+    Document[] Documents
+}
+
+note right: For API result
+
+Collection o-- Document : aggregation
+
+@enduml

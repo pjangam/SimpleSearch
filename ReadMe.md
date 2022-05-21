@@ -19,3 +19,6 @@ allow sorting by `name` and `dateLastEdited`
 ## Pagination:
 Use 'page numbers' style of pagination
 Include total count in the response matching the current query result 
+
+
+<!-- ![Diagram Image Link](./Design.plantuml) -->
