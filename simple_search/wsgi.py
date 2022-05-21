@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 logger = logging.getLogger(__name__)
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'origination.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'origination.settings.local')
 
 application = get_wsgi_application()

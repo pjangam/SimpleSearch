@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SECRET_KEY = 't7nJH4RVm78PdOOYbWRfDlt1ziUAAsECH8pY2cCKa45fqlXPHi'
 
 # Application definition
 

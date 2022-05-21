@@ -9,7 +9,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,7 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'simple_search'
+    'simple_search',
+    'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -28,7 +29,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'simple_search.urls'
@@ -50,7 +51,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'simple_search.wsgi.application'
-
 
 LANGUAGE_CODE = 'en-us'
 
@@ -98,10 +98,8 @@ ENV = Environment()
 
 # add packages here for auto imports in django shell
 SHELL_PLUS_POST_IMPORTS = [
-    ('account', '*'),
 ]
 
 # This is what drives the sites and domains during redirects
-#SITE_ID = Environment.SITE_ID
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#AWS_STORAGE_BUCKET_NAME = Environment.BUCKET
+SITE_ID = Environment.SITE_ID
+SECRET_KEY = 't7nJH4RVm78PdOOYbWRfDlt1ziUAAsECH8pY2cCKa45fqlXPHi'
