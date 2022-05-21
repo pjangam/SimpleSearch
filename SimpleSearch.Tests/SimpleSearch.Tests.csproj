@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimpleSearch\SimpleSearch.csproj" />
+    <ProjectReference Include="..\SimpleSearch.Web\SimpleSearch.Web.csproj" />
   </ItemGroup>
 
 </Project>

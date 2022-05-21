@@ -17,7 +17,7 @@ endif
 .PHONY: start
 ## Starts the app.
 start:
-	dotnet run
+	dotnet run --project SimpleSearch.Web
 
 .PHONY: clean
 ## Removes generated files.
