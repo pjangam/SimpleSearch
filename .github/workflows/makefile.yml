@@ -23,4 +23,6 @@ jobs:
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
+        path-to-lcov: "SimpleSearch.Tests/TestResults/*/coverage.info"
         github-token: ${{ secrets.github_token }}
+
