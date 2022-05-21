@@ -16,12 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
+    - uses: actions/setup-python@v1
+    - uses: knowsuchagency/poetry-install@v1
     - name: Test and publish coverage
       run: |
         make
-         
-
     - name: Coveralls
       uses: coverallsapp/github-action@python
       with:
