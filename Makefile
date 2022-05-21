@@ -9,7 +9,7 @@ all:test
 .PHONY: test
 ## Runs the unit tests.
 test: clean
-	dotnet test -c Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+	dotnet test -c Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=lcov,opencover
 ifeq ($(ENV),'DEV')
 	dotnet ~/.nuget/packages/reportgenerator/5.1.9/tools/netcoreapp3.1/ReportGenerator.dll  "-reports:./SimpleSearch.Tests/TestResults/**/coverage.opencover.xml" "-targetdir:coveragereport" -reporttypes:Html
 endif
