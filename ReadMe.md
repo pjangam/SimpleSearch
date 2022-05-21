@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/pjangam/SimpleSearch/badge.svg?branch=master)](https://coveralls.io/github/pjangam/SimpleSearch?branch=master)
 # Simple Search algorithm on json objects
 ## Search:
 - should search in fields `name` and `description`
