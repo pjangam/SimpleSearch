@@ -1,4 +1,4 @@
-![Build](https://github.com/pjangam/SimpleSearch/actions/workflows/makefile.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/pjangam/SimpleSearch/badge.svg?branch=master)](https://coveralls.io/github/pjangam/SimpleSearch?branch=master)
+![Build](https://github.com/pjangam/SimpleSearch/actions/workflows/makefile.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/pjangam/SimpleSearch/badge.svg?branch=python)](https://coveralls.io/github/pjangam/SimpleSearch?branch=python)
 # Simple Search algorithm on json objects
 ## Search:
 - should search in fields `name` and `description`

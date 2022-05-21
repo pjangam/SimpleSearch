@@ -1,13 +1,13 @@
 name: Makefile CI
 
-env: 
+env:
   ENV: 'DEV'
 
 on:
   push:
-    branches: [ master ]
+    branches: [ python ]
   pull_request:
-    branches: [ master ]
+    branches: [ python ]
 
 jobs:
   build:
@@ -16,15 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      
+
     - name: Test and publish coverage
       run: |
         make
-        cp SimpleSearch.Tests/TestResults/*/coverage.info SimpleSearch.Tests/TestResults/coverage.info 
+         
 
     - name: Coveralls
-      uses: coverallsapp/github-action@master
+      uses: coverallsapp/github-action@python
       with:
-        path-to-lcov: "SimpleSearch.Tests/TestResults/coverage.info"
+        path-to-lcov: "coverage.lcov"
         github-token: ${{ secrets.github_token }}
 

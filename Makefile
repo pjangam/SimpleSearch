@@ -1,37 +1,22 @@
--include User.mk
--include ../User.mk
--include ~/User.mk
-
 .PHONY: all
-## Runs unit the tests.
 all:test
 
 .PHONY: test
-## Runs the unit tests.
-test: clean
-	dotnet test -c Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=lcov,opencover
-ifeq ($(ENV),'DEV')
-	dotnet ~/.nuget/packages/reportgenerator/5.1.9/tools/netcoreapp3.1/ReportGenerator.dll  "-reports:./SimpleSearch.Tests/TestResults/**/coverage.opencover.xml" "-targetdir:coveragereport" -reporttypes:Html
-endif
+test:
+	poetry run pytest
 
-.PHONY: start
-## Starts the app.
-start:
-	dotnet run --project SimpleSearch.Web
-
-.PHONY: clean
-## Removes generated files.
-clean:
-	dotnet clean
-	dotnet clean -c Release
-	rm -rf test/SimpleSearch.Tests/TestResults
-	rm -rf coveragereport
-
-## build
 .PHONY: build
 build:
-	dotnet build -c Release 
+	poetry install --dev
 
-.PHONY: publish
-publish:
-	dotnet publish -c Release
+.PHONY: cover
+cover:
+	poetry run coverage run --source=. --omit="*/test*" -m pytest
+	poetry run coverage report -m
+	poetry run coverage html
+	poetry run coverage lcov
+
+.PHONY: start
+start:
+	poetry run python manage.py runserver
+
