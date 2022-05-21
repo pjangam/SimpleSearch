@@ -2,7 +2,7 @@ name: Makefile CI
 
 env:
   ENV: 'DEV'
-
+  DJANGO_SETTINGS_MODULE: 'settings.local'
 on:
   push:
     branches: [ python ]
