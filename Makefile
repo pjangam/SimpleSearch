@@ -1,3 +1,14 @@
+.ONESHELL:
+SHELL := zsh
+
+DJANGO_SETTINGS_MODULE=settings.local
+
+
+-include User.mk
+-include ../User.mk
+-include ~/User.mk
+
+
 .PHONY: all
 all:test
 
