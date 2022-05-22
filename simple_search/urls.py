@@ -16,10 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from simple_search.view import GreetView, DocumentListView
+from simple_search.view import  DocumentListView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', GreetView.as_view(), name='greet'),
     path('/api/documents', DocumentListView.as_view(), name='document_list'),
 ]
