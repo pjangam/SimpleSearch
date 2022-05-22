@@ -1,3 +1,4 @@
+import json
 import unittest
 
 from django.urls import reverse
@@ -15,5 +16,13 @@ class TestListView(unittest.TestCase):
             content_type='application/json',
             **{'accept': 'application/json'}
         )
+        expected_documents = json.loads(open('./simple_search/mock_data.json').read())
 
         self.assertEqual(status.HTTP_200_OK, response.status_code)
+        self.assertEqual(
+            {
+                "count": len(expected_documents),
+                "documents": expected_documents
+            },
+            response.json()
+        )
